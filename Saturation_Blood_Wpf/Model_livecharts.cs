@@ -489,6 +489,13 @@ namespace Saturation_Blood_Wpf
 
         }
 
+        public void Save_Saturation() 
+        {
+            model_saturation.Save_data save_Data = new model_saturation.Save_data();
+            save_Data.Save_Saturation(saturation.Get_Saturation_Time(), saturation.Get_Saturation_1());
+
+        }
+
 
         //Вернуть данные
         #region

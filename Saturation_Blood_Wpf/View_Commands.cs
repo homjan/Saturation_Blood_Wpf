@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Media;
+using System.Windows.Forms;
 
 namespace Saturation_Blood_Wpf
 {
@@ -47,26 +48,7 @@ namespace Saturation_Blood_Wpf
         }
 
         #region 
-        private Command_Graph calculate_sin_button;
-
-        public Command_Graph Calculate_Sin_Button
-        {
-
-            get
-            {
-                return calculate_sin_button ??
-                   (
-                       calculate_sin_button = new Command_Graph(
-                           obj => {
-                               ZoomingMode = ZoomingOptions.X;
-                           }
-                           )
-                   );
-
-            }
-
-        }
-
+        
         /// <summary>
         /// Открыть файл
         /// </summary>
@@ -133,8 +115,36 @@ namespace Saturation_Blood_Wpf
             {
                 return save_data ??
                     (save_data = new Command_Graph(obj => {
-                       
-                     //   SaveToPng(mytestchart, "Chart.png");
+
+                        string adres = "q";
+                        string datapath = "w";
+
+                        FolderBrowserDialog fbd = new FolderBrowserDialog();
+                        if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            adres = fbd.SelectedPath;
+                            datapath = Path.Combine(System.Windows.Forms.Application.StartupPath);
+                            try
+                            {
+                                FileInfo f1 = new FileInfo(Path.Combine(System.Windows.Forms.Application.StartupPath, "test3.txt"));
+                                if (f1.Exists)
+                                {
+                                    f1.CopyTo(Path.Combine(adres, "test.txt"), true);
+                                }
+
+
+                                FileInfo f8 = new FileInfo(Path.Combine(System.Windows.Forms.Application.StartupPath, "Насыщение.txt"));
+                                if (f8.Exists)
+                                {
+                                    f8.CopyTo(Path.Combine(adres, "Насыщение.txt"), true);
+                                }
+
+                            }
+                            catch {
+                                System.Windows.MessageBox.Show("Аккуратнее переименовайте папку!");
+                            }
+
+                        }
 
                     }));
             }
@@ -383,7 +393,7 @@ namespace Saturation_Blood_Wpf
                         model.Calculate_Saturation();
 
                         model.Make_Graph_Saturation_Four_Canal(Convert.ToInt32(axis_X_min_value), Convert.ToInt32(axis_X_max_value));
-
+                        model.Save_Saturation();
 
                         shift_ = model.Make_Graph_Saturation_Four_Canal;
 
@@ -443,6 +453,7 @@ namespace Saturation_Blood_Wpf
                         model.Calculate_Saturation();
 
                         model.Make_Graph_Saturation();
+                        model.Save_Saturation();
 
                         SeriesCollection = model.Get_SeriesCollection_Model();
                         Axis_Left_Title = "Насыщение, %";

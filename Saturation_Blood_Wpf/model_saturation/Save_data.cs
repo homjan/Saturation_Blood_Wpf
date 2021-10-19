@@ -106,7 +106,7 @@ namespace Saturation_Blood_Wpf.model_saturation
         /// <param name="saturation_y"></param>
         public void Save_Saturation(double[] saturation_time, double[] saturation_y)
         {
-            StreamWriter rw = new StreamWriter("насыщение.txt");
+            StreamWriter rw = new StreamWriter("Насыщение.txt");
             for (int y = 0; y < saturation_time.Length - 1; y++)
             {
                 rw.WriteLine(saturation_time[y] + "\t" + saturation_y[y] * 100);

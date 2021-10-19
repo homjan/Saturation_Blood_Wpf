@@ -120,7 +120,7 @@
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Time, s" Labels="{Binding Labels, UpdateSourceTrigger=PropertyChanged}">
                         <lvc:Axis.Separator>
-                            <lvc:Separator  StrokeThickness="1" StrokeDashArray="2" Step="{Binding Step_Axis_X}">
+                            <lvc:Separator  StrokeThickness="1" StrokeDashArray="2" Step="30">
                                 <lvc:Separator.Stroke>
                                     <SolidColorBrush Color="#404F56" />
                                 </lvc:Separator.Stroke>
@@ -146,8 +146,8 @@
             <Button x:Name="button10" Content="Влево" Canvas.Left="20" Canvas.Top="385" Style="{StaticResource Button_SHIFT}" Margin="0" Command="{Binding Left_Shift_Command}"/>
             <Slider x:Name="slider" Canvas.Left="115" Canvas.Top="390" Width="680" Height="30" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled ="True"
                     Minimum="{Binding Minimum_Value_Slider}" Maximum="{Binding Maximum_Value_Slider}" Value="{Binding Value_Slider}">
-            
-            
+
+
             </Slider>
             <Button x:Name="button11" Content="Вправо" Canvas.Left="811" Canvas.Top="380" Style="{StaticResource Button_SHIFT}" Margin="0" Command="{Binding Right_Shift_Command}"/>
 
@@ -302,11 +302,11 @@
                 <ComboBoxItem>500</ComboBoxItem>
 
             </ComboBox>
-            <ListBox x:Name="listBox" Height="396" Canvas.Left="1058" Canvas.Top="70" Width="198" ItemsSource="{Binding Saturation_Data}"/>
+            <ListBox x:Name="listBox" Height="406" Canvas.Left="1053" Canvas.Top="55" Width="198" ItemsSource="{Binding Saturation_Data}"/>
             <Label x:Name="label19" Content="{Binding Str}" Canvas.Left="613" Canvas.Top="422" Width="80"/>
             <TextBox x:Name="N_pass" Height="23" Canvas.Left="905" TextWrapping="Wrap" Text="{Binding N_SEE, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="443" Width="120"/>
-            <Label x:Name="label20" Content="Сатурация" Canvas.Left="1099" Canvas.Top="30" FontSize="18" FontWeight="Bold" FontFamily="Georgia"/>
-           
+            <Label x:Name="label20" Content="Сатурация" Canvas.Left="1102" Canvas.Top="20" FontSize="18" FontWeight="Bold" FontFamily="Georgia"/>
+
 
         </Canvas>
 

@@ -691,7 +691,7 @@ namespace Saturation_Blood_Wpf.model_saturation
         {           
             ChartValues<ObservablePoint> val_1 = new ChartValues<ObservablePoint>();
 
-            for (int i = 0; i < length_p; i++)
+            for (int i = 0; i < length_p-1; i++)
             {
                 if (!Double.IsNaN(Saturation_y1[i]))
                 {
@@ -707,10 +707,9 @@ namespace Saturation_Blood_Wpf.model_saturation
             {
                 new LineSeries
                 {
-                    Title = "Канал 1",
+                    Title = "Сатурация",
                     Values = val_1,
                     LineSmoothness = LineSmouth,
-                    PointGeometry = null,
                     Fill = Brushes.Transparent,
                     ScalesYAt = 0
                 },
@@ -847,7 +846,7 @@ namespace Saturation_Blood_Wpf.model_saturation
 
             ChartValues<ObservablePoint> val_saturation = new ChartValues<ObservablePoint>();
 
-            for (int i = 0; i < Saturation_t.Length; i++)
+            for (int i = 0; i < Saturation_t.Length-1; i++)
             {
                 if (!Double.IsNaN(Saturation_y1[i]))
                 {

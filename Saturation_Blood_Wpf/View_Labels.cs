@@ -245,7 +245,7 @@ namespace Saturation_Blood_Wpf
             {"ik_const_", "3"},
             {"ik_diff_", "4"},
             {"red_const_regul_", "10"},
-            {"red_diff_regul_", "90"},
+            {"red_diff_regul_", "50"},
             {"ik_const_regul_", "10"},            
             {"ik_diff_regul_", "90"},
             {"canal_FPG_", "1"},
@@ -395,7 +395,7 @@ namespace Saturation_Blood_Wpf
 
         }
 
-        private string red_diff_regul = "90";
+        private string red_diff_regul = "50";
         public string RED_DIFF_Regul
         {
             get { return red_diff_regul; }
