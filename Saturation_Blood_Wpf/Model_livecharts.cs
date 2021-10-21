@@ -429,16 +429,14 @@ namespace Saturation_Blood_Wpf
        
 
         public void Calculate_Saturation() 
-        {
-           
-
+        {           
             if (radbutton_settings_data["const_calculation_only_"])
             { 
                 saturation.Set_K_Pow_Const(atten, k_const_RED, k_const_IK);
-            saturation.Subscribe_Length_Special();
-            saturation.Calculate_K_Pow_Diff();
-            saturation.Calculate_Intensity();
-            saturation.Calculate_Saturation_Time();
+                saturation.Subscribe_Length_Special();
+                saturation.Calculate_K_Pow_Diff();
+                saturation.Calculate_Intensity();
+                saturation.Calculate_Saturation_Time();
                 saturation.Calculate_Saturation_1_Kalinina_Const();
             }
 
@@ -454,10 +452,11 @@ namespace Saturation_Blood_Wpf
             }
 
             saturation.Minimize_Saturation_Element();
+            saturation.Filter_Saturation();
         }
 
         public void Make_Graph_Saturation() 
-        {
+        {            
             // Set_Time_Border(Left_Limit, Right_Limit);
             LivechartData.Make_Graph_Saturation(saturation.Get_Saturation_Time(), saturation.Get_Saturation_1(), saturation.Get_full_length());
              
@@ -530,8 +529,8 @@ namespace Saturation_Blood_Wpf
             return SpecialPoint.Get_spec_point_Length();
         }
 
-        public int Get_Signal_Length() {
-            return InitialData.Get_b();
+        public double Get_Signal_Length() {
+            return Convert.ToDouble( InitialData.Get_Max_Time());
         }
 
         public int[] Get_Length_Special_Point_four_Canal() {

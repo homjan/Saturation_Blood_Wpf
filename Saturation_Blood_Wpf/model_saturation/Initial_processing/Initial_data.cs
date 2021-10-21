@@ -460,6 +460,11 @@ namespace Saturation_Blood_Wpf.model_saturation.Initial_processing
             return b;
         }
 
+        public long Get_Max_Time() 
+        {
+            return row1[b-1, 0];
+        }
+
         public long[][] Get_row_divided()
         {
             return row_divided;

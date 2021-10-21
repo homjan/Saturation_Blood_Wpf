@@ -257,7 +257,7 @@ namespace Saturation_Blood_Wpf
 
                         
                         Minimum_Value_Slider = 0;
-                        Maximum_Value_Slider = model.Get_Signal_Length()/1000;
+                        Maximum_Value_Slider = model.Get_Signal_Length()/1000000;
                         Value_Slider = Axis_X_Min_Value;
 
 
@@ -310,7 +310,7 @@ namespace Saturation_Blood_Wpf
                         ZoomingMode = ZoomingOptions.X;
 
                         Minimum_Value_Slider = 0;
-                        Maximum_Value_Slider = model.Get_Signal_Length() / 1000;
+                        Maximum_Value_Slider = model.Get_Signal_Length() / 1000000;
 
                     }));
             }
@@ -354,7 +354,7 @@ namespace Saturation_Blood_Wpf
                         ZoomingMode = ZoomingOptions.X;
 
                         Minimum_Value_Slider = 0;
-                        Maximum_Value_Slider = model.Get_Signal_Length() / 1000;
+                        Maximum_Value_Slider = model.Get_Signal_Length() / 1000000;
 
                     }));
             }
@@ -414,7 +414,7 @@ namespace Saturation_Blood_Wpf
                         ZoomingMode = ZoomingOptions.X;
 
                         Minimum_Value_Slider = 0;
-                        Maximum_Value_Slider = model.Get_Signal_Length() / 1000;
+                        Maximum_Value_Slider = model.Get_Signal_Length() / 1000000;
 
                     }));
             }

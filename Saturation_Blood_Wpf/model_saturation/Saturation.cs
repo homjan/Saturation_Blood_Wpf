@@ -424,6 +424,19 @@ namespace Saturation_Blood_Wpf.model_saturation
             return new_Spec_Point;
 
         }
+
+        public void Filter_Saturation() 
+        {
+            for (int i = 1; i < Saturation1.Length; i++)
+            {
+                if (Saturation1[i]>1 || Saturation1[i]<0)
+                {
+                    Saturation1[i] = Saturation1[i - 1];
+                }
+            }
+           
+        
+        }
                 
         public int Get_Length_Special_Red_Const()
         {

@@ -191,7 +191,7 @@ namespace Saturation_Blood_Wpf.model_saturation.Initial_processing
         /// </summary>
         public void Delete_Zero_In_Period()
         {
-            for (int i = 1; i < period.Length; i++)
+         /*   for (int i = 1; i < period.Length; i++)
             {
                 if (period[i].Length == 0)
                 {
@@ -200,24 +200,28 @@ namespace Saturation_Blood_Wpf.model_saturation.Initial_processing
                         period[j] = period[j + 1];
                     }
                 }
-            }
+            }*/
             int s = 1;
 
             for (int i = 1; i < period.Length; i++)
-            {
-                s++;
-
-                if (period[i].Length == 0)
+            { 
+                if (period[i].Length != 0)
                 {
-                    break;
+                   s++;
                 }
             }
 
             long[][] period_new = new long[s][];
+            int j = 0;
 
-            for (int i = 0; i < period_new.Length; i++)
+            for (int i = 0; i < period.Length; i++)
             {
-                period_new[i] = period[i];
+                if (period[i].Length != 0)
+                {
+                    period_new[j] = period[i];
+                    j++;
+                }
+               
             }
 
             Set_Period(period_new);
@@ -291,10 +295,21 @@ namespace Saturation_Blood_Wpf.model_saturation.Initial_processing
 
             for (int i = 0; i < period.Length; i++)
             {
-                for (int j = 0; j < period[i].Length; j++)
+                if (period[i].Length < 1000)
                 {
-                    period1000[i, j] = period[i][j];
+                    for (int j = 0; j < period[i].Length; j++)
+                    {
+                        period1000[i, j] = period[i][j];
+                    }
                 }
+                else 
+                {
+                    for (int j = 0; j < 1000; j++)
+                    {
+                        period1000[i, j] = period[i][j];
+                    }
+                }
+                
             }
 
             return period1000;

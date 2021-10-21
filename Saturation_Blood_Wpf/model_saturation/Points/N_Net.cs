@@ -123,13 +123,11 @@ namespace Saturation_Blood_Wpf.model_saturation.Points
 
             Inicialize_Layers();
 
-
-
         }
 
         private void Set_External_Data()
         {
-
+            Periods_Data.Delete_Zero_In_Period();
             periods = Periods_Data.Get_Period();//Конвертируем выбранную поток с рег в массив периодов
             periods_full_length = Periods_Data.Return_Period_In_Data_Length();
             periods_1000 = Periods_Data.Return_Periods_1000();//Добавляем 0 в массиве до одинаковой длины=1000
